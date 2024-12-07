@@ -1,42 +1,64 @@
+// Widths
+$wrapperWidth: 1360px;
+$mobileWidth: 640px;
+
+// Media Query Breakpoints
+$desktop: "all and (min-width: #{($wrapperWidth + 20)}px)";
+$tablet: "all and (min-width: #{($mobileWidth + 1)}px) and (max-width: #{($wrapperWidth + 19)}px)";
+$mobile: "all and (max-width: #{$mobileWidth}px)";
+
+$primaryColour: #2f353f;
+$secondaryColour: #4ed2b5;
+$tertiaryColour: #e85d75;
+$successColour: #3f8828;
+$informationColour: #f1c40f;
+$warningColour: #f0ae49;
+$errorColour: #e74c3c;
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    // Widths
+    --wrapperWidth: #{$wrapperWidth};
+    --mobileWidth: #{$mobileWidth};
+
+    --baseLetterSpacing: normal;
+    --baseFontSize: 16;
+
+    // Fonts
+    --primaryFont: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --bodyFont: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+    // Borders
+    --borderRadius: 5px;
+    --borderColour: #2f353f;
+
+    // Brand colours
+    --primaryColour: #{$primaryColour};
+    --secondaryColour: #{$secondaryColour};
+    --tertiaryColour: #{$tertiaryColour};
+    --successColour: #{$successColour};
+    --informationColour: #{$informationColour};
+    --warningColour: #{$warningColour};
+    --errorColour: #{$errorColour};
+
+    // Typography
+    --textColour: #2f353f;
+    --subTextColour: #7a7e84;
+    --disabledColour: #acaeb2;
+    --lightTextColour: #ffffff;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+.dark-mode {
+    // Typography
+    --textColour: #ffffff;
+    --subTextColour: #7a7e84;
+    --disabledColour: #acaeb2;
+    --lightTextColour: #000;
 
-html,
-body {
-    max-width: 100vw;
-    overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+    // Layers
+    --layerDarkColour: #ffffff;
+    --layerAccentColour: #21201f;
+    --layerLightColour: #0a0a08;
+    --layerWhiteColour: #000000;
+    --layerOverlayColour: rgba(0, 0, 0, 0.4);
+    --darkSectionBgColour: #3f444a;
 }
