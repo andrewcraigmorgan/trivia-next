@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { fetchTriviaQuestions } from "@/lib/api";
+import { decode } from "he";
 
 const HomePage = () => {
     const [questions, setQuestions] = useState([]);
@@ -12,7 +13,7 @@ const HomePage = () => {
     useEffect(() => {
         const loadQuestions = async () => {
             try {
-                const data = await fetchTriviaQuestions(10, "9", "easy"); // Example params
+                const data = await fetchTriviaQuestions(10, "9", "easy");
                 setQuestions(data);
                 setLoading(false);
             } catch (error) {
@@ -25,7 +26,9 @@ const HomePage = () => {
     }, []);
 
     const handleAnswer = (isCorrect) => {
-        if (isCorrect) setScore((prev) => prev + 1);
+        if (isCorrect) {
+            setScore((prev) => prev + 1);
+        }
         setCurrentIndex((prev) => prev + 1);
     };
 
@@ -49,7 +52,7 @@ const HomePage = () => {
     return (
         <div style={{ maxWidth: "600px", margin: "auto", padding: "20px", textAlign: "center" }}>
             <h1>Trivia Game</h1>
-            <h2>{currentQuestion.question}</h2>
+            <h2>{decode(currentQuestion.question)}</h2>
             {shuffledAnswers.map((answer, idx) => (
                 <button
                     key={idx}
@@ -66,7 +69,7 @@ const HomePage = () => {
                     }}
                     onClick={() => handleAnswer(answer === currentQuestion.correct_answer)}
                 >
-                    {answer}
+                    {decode(answer)}
                 </button>
             ))}
         </div>

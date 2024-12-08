@@ -62,3 +62,7 @@ $errorColour: #e74c3c;
     --layerOverlayColour: rgba(0, 0, 0, 0.4);
     --darkSectionBgColour: #3f444a;
 }
+
+body {
+    font-family: var(--font-geist-sans), sans-serif;
+}
